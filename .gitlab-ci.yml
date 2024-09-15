@@ -1,0 +1,16 @@
+image: registry.gitlab.com/pages/hugo:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive  # Ensures submodules (themes) are pulled
+
+before_script:
+  - hugo version  # Check Hugo version for debugging
+
+pages:
+  script:
+    - hugo  # Build the Hugo site
+  artifacts:
+    paths:
+      - public  # The public directory is where Hugo outputs the static site
+  only:
+    - main  # Deploy only when pushing to the 'main' branch
