@@ -21,3 +21,23 @@ theme = 'PaperMod'
     url = "https://gitlab.com/abhilashmallikarjuna2"
   [params.assets]
     favicon="/assets/favicon.png"
+
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "posts"
+name = "Blog"
+url = "/blog/"
+weight = 2
+
+[[menu.main]]
+identifier = "TIL"
+name = "TIL"
+url = "/today-i-learnt/"
+weight = 3
+
+mainSections = ["posts","TIL"]
