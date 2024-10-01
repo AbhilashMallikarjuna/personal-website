@@ -6,7 +6,7 @@ theme = 'PaperMod'
 [params]
   [params.homeInfoParams]
     Title = "Hey, I'm Abhilash Mallikarjuna 👋"
-    Content = "A curious engineer navigating the digital world. Here, I'll be sharing my explorations in tech alongside reflections from my personal journey. Expect some cool software tips, handy tricks I've picked up, and random thoughts on whatever catches my ey."
+    Content = "A curious engineer navigating the digital world. Here, I'll be sharing my explorations in tech alongside reflections from my personal journey. Expect some cool software tips, handy tricks I've picked up, and random thoughts on whatever catches my eye."
   [[params.socialIcons]]
     name = "twitter"
     url = "https://x.com/abhilash_malli"
@@ -21,6 +21,8 @@ theme = 'PaperMod'
     url = "https://gitlab.com/abhilashmallikarjuna2"
   [params.assets]
     favicon="/assets/favicon.png"
+
+[menu]
 
 [[menu.main]]
 identifier = "home"
@@ -41,3 +43,7 @@ url = "/today-i-learnt/"
 weight = 3
 
 mainSections = ["posts","TIL"]
+
+hideSummary = true
+
+ShowCodeCopyButtons = true
