@@ -6,8 +6,19 @@
     <description>Recent content on My Curiosity Corner</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Oct 2024 14:17:38 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 09 Nov 2024 19:08:17 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP Trailer Headers</title>
+      <link>http://localhost:1313/today-i-learnt/http-trailer-headers/</link>
+      <pubDate>Sat, 09 Nov 2024 19:08:17 +0530</pubDate>
+      <guid>http://localhost:1313/today-i-learnt/http-trailer-headers/</guid>
+      <description>&lt;p&gt;While returning a HTTP response, you cannot write headers once you complete writing the body.&lt;/p&gt;
+&lt;p&gt;So what if some headers needs to generated while message body is sent. Trailer Headers comes to our rescue here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Trailer Headers are HTTP response headers sent at the end of response message.&lt;/strong&gt;
+They work specifically with chunked transfer encoding i.e. where response sent in chunks.&lt;/p&gt;
+&lt;p&gt;You have to specify the header names which will be sent in the end with the header key &lt;code&gt;Trailer&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Facio Ergo Sum</title>
       <link>http://localhost:1313/blog/facio-ergo-sum/</link>

@@ -180,6 +180,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">HTTP Trailer Headers
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <footer class="entry-footer"><span title='2024-11-09 19:08:17 +0530 IST'>November 9, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to HTTP Trailer Headers" href="http://localhost:1313/today-i-learnt/http-trailer-headers/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Facio Ergo Sum
     </h2>
   </header>
@@ -192,11 +207,6 @@
     <h2 class="entry-hint-parent">JSON tags in Golang Structs are case-insensitive
     </h2>
   </header>
-  <div class="entry-content">
-    <p>After debugging an issue for a while, I realized that the JSON tags in Golang structs are case-insensitive. Below is a code sample that demonstrates this.
-package main import ( &#34;fmt&#34; &#34;encoding/json&#34; ) type Person struct { Name string `json:&#34;Name&#34;` } var stringifiedJSON = `{&#34;Name&#34;: &#34;mallikarjuna&#34;, &#34;name&#34;: &#34;abhilash&#34;}` func main() { var person Person if err := json.Unmarshal([]byte(stringifiedJSON), &amp;person); err != nil { fmt.Println(err) return } fmt.Println(person.Name) // abhilash } Go playground link Explanation from the docs:
-...</p>
-  </div>
   <footer class="entry-footer"><span title='2024-09-30 12:33:03 +0530 IST'>September 30, 2024</span></footer>
   <a class="entry-link" aria-label="post link to JSON tags in Golang Structs are case-insensitive" href="http://localhost:1313/today-i-learnt/go-json-tags-case-sensitivity/"></a>
 </article>

@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/today-i-learnt/</loc>
+    <lastmod>2024-11-09T19:08:17+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/today-i-learnt/http-trailer-headers/</loc>
+    <lastmod>2024-11-09T19:08:17+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-11-09T19:08:17+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/blog/</loc>
     <lastmod>2024-10-01T14:17:38+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/facio-ergo-sum/</loc>
     <lastmod>2024-10-01T14:17:38+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-10-01T14:17:38+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/today-i-learnt/</loc>
-    <lastmod>2024-09-30T12:33:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/golang/</loc>
     <lastmod>2024-09-30T12:33:03+05:30</lastmod>
