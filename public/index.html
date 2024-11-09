@@ -189,6 +189,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">JSON tags in Golang Structs are case-insensitive
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>After debugging an issue for a while, I realized that the JSON tags in Golang structs are case-insensitive. Below is a code sample that demonstrates this.
+package main import ( &#34;fmt&#34; &#34;encoding/json&#34; ) type Person struct { Name string `json:&#34;Name&#34;` } var stringifiedJSON = `{&#34;Name&#34;: &#34;mallikarjuna&#34;, &#34;name&#34;: &#34;abhilash&#34;}` func main() { var person Person if err := json.Unmarshal([]byte(stringifiedJSON), &amp;person); err != nil { fmt.Println(err) return } fmt.Println(person.Name) // abhilash } Go playground link Explanation from the docs:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-09-30 12:33:03 +0530 IST'>September 30, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to JSON tags in Golang Structs are case-insensitive" href="http://localhost:1313/today-i-learnt/go-json-tags-case-sensitivity/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Always ‘push the problem down’
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">

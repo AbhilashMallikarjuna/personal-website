@@ -1,0 +1,41 @@
+baseURL: https://abhilashmallikarjuna.in/
+languageCode: en-us
+menu:
+  main:
+  - identifier: home
+    name: Home
+    url: /
+    weight: 1
+  - identifier: posts
+    name: Blog
+    url: /blog/
+    weight: 2
+  - ShowCodeCopyButtons: true
+    hideSummary: true
+    identifier: today_i_learnt
+    name: TIL
+    url: /today-i-learnt/
+    weight: 3
+params:
+  assets:
+    favicon: /assets/favicon.png
+  homeInfoParams:
+    Content: A curious engineer navigating the digital world. Here, I'll be sharing
+      my explorations in tech alongside reflections from my personal journey.
+    Title: "Hey, I'm Abhilash Mallikarjuna \U0001F44B"
+  mainSections:
+  - blog
+  - today-i-learnt
+  socialIcons:
+  - name: twitter
+    url: https://x.com/abhilash_malli
+  - name: linkedin
+    url: https://www.linkedin.com/in/abhilash-mallikarjuna/
+  - name: instagram
+    url: https://www.instagram.com/abhilash_mallikarjuna/
+  - name: gitlab
+    url: https://gitlab.com/abhilashmallikarjuna2
+  - name: github
+    url: https://github.com/AbhilashMallikarjuna
+theme: PaperMod
+title: My Curiosity Corner
