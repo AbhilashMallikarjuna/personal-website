@@ -1,0 +1,299 @@
+{{- define "main" }}
+
+<style>
+/* Filter Pills Styling */
+.shelf-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.filter-pill {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--tertiary);
+  border: 1px solid var(--border);
+  color: var(--content);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.filter-pill:hover {
+  background: var(--theme);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background: var(--theme);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.filter-count {
+  opacity: 0.7;
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+/* Markdown Content Styling */
+.post-content {
+  max-width: 100%;
+}
+
+/* Year header */
+.post-content h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  margin-top: 24px;
+  opacity: 0.65;
+}
+
+/* Month header - positioned on left */
+.post-content h3 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  margin-top: 8px;
+  opacity: 0.6;
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* Items - positioned on right next to month */
+.post-content p {
+  margin-bottom: 4px;
+  margin-left: 120px;
+  line-height: 1.8;
+  min-height: 1.8em;
+}
+
+/* Clear floats after each month section */
+.post-content h2 {
+  clear: both;
+}
+
+.post-content span[data-type] {
+  display: inline;
+  line-height: 1.8;
+}
+
+.post-content a {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.post-content a:hover {
+  cursor: pointer;
+}
+
+/* Hidden state */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .shelf-filters {
+    gap: 8px;
+  }
+  
+  .filter-pill {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .post-content h3 {
+    width: 100px;
+    padding-left: 10px;
+  }
+  
+  .post-content p {
+    margin-left: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-content h3 {
+    float: none;
+    width: 100%;
+    margin-bottom: 4px;
+    padding-left: 0;
+  }
+  
+  .post-content p {
+    margin-left: 20px;
+  }
+}
+</style>
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+<!-- Filter Pills -->
+<div class="shelf-filters">
+  <button class="filter-pill active" data-filter="all">
+    All <span class="filter-count" data-count="all">(0)</span>
+  </button>
+  <button class="filter-pill" data-filter="book">
+    Books <span class="filter-count" data-count="book">(0)</span>
+  </button>
+  <button class="filter-pill" data-filter="article">
+    Articles <span class="filter-count" data-count="article">(0)</span>
+  </button>
+  <button class="filter-pill" data-filter="video">
+    Videos <span class="filter-count" data-count="video">(0)</span>
+  </button>
+</div>
+
+<!-- Shelf Content -->
+<div class="post-content">
+  {{ .Content }}
+</div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Wait for DOM to be fully loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  function init() {
+    console.log('Shelf page initialized');
+    calculateCounts();
+    setupFilters();
+  }
+  
+  // Calculate initial counts
+  function calculateCounts() {
+    const items = document.querySelectorAll('.post-content span[data-type]');
+    console.log('Found items:', items.length);
+    items.forEach(item => console.log('Item type:', item.getAttribute('data-type')));
+    
+    const counts = { all: 0, book: 0, article: 0, video: 0 };
+    
+    items.forEach(item => {
+      const type = item.getAttribute('data-type');
+      counts.all++;
+      if (counts.hasOwnProperty(type)) {
+        counts[type]++;
+      }
+    });
+    
+    console.log('Counts:', counts);
+    
+    // Update count displays
+    const allCount = document.querySelector('[data-count="all"]');
+    const bookCount = document.querySelector('[data-count="book"]');
+    const articleCount = document.querySelector('[data-count="article"]');
+    const videoCount = document.querySelector('[data-count="video"]');
+    
+    console.log('Count elements:', { allCount, bookCount, articleCount, videoCount });
+    
+    if (allCount) allCount.textContent = `(${counts.all})`;
+    if (bookCount) bookCount.textContent = `(${counts.book})`;
+    if (articleCount) articleCount.textContent = `(${counts.article})`;
+    if (videoCount) videoCount.textContent = `(${counts.video})`;
+  }
+  
+  // Filter function
+  function filterItems(type) {
+    const items = document.querySelectorAll('.post-content span[data-type]');
+    const h2s = document.querySelectorAll('.post-content h2');
+    const h3s = document.querySelectorAll('.post-content h3');
+    
+    // Show/hide items (hide the parent <p> element)
+    items.forEach(item => {
+      const parent = item.parentElement; // the <p> tag
+      if (type === 'all' || item.getAttribute('data-type') === type) {
+        parent.classList.remove('hidden');
+      } else {
+        parent.classList.add('hidden');
+      }
+    });
+    
+    // Hide empty h3 (months)
+    h3s.forEach(h3 => {
+      let nextElement = h3.nextElementSibling;
+      let hasVisibleItems = false;
+      
+      while (nextElement && nextElement.tagName !== 'H2' && nextElement.tagName !== 'H3') {
+        if (nextElement.tagName === 'P' && !nextElement.classList.contains('hidden')) {
+          hasVisibleItems = true;
+          break;
+        }
+        nextElement = nextElement.nextElementSibling;
+      }
+      
+      if (hasVisibleItems) {
+        h3.classList.remove('hidden');
+      } else {
+        h3.classList.add('hidden');
+      }
+    });
+    
+    // Hide empty h2 (years)
+    h2s.forEach(h2 => {
+      let nextElement = h2.nextElementSibling;
+      let hasVisibleContent = false;
+      
+      while (nextElement && nextElement.tagName !== 'H2') {
+        if (!nextElement.classList.contains('hidden')) {
+          hasVisibleContent = true;
+          break;
+        }
+        nextElement = nextElement.nextElementSibling;
+      }
+      
+      if (hasVisibleContent) {
+        h2.classList.remove('hidden');
+      } else {
+        h2.classList.add('hidden');
+      }
+    });
+  }
+  
+  // Setup filter click handlers
+  function setupFilters() {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    console.log('Filter pills found:', filterPills.length);
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        // Update active state
+        filterPills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Apply filter
+        const filterType = this.getAttribute('data-filter');
+        console.log('Filtering by:', filterType);
+        filterItems(filterType);
+      });
+    });
+  }
+})();
+</script>
+
+{{- end }}{{/* end main */}}
+

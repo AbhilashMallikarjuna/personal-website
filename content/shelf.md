@@ -1,0 +1,13 @@
++++
+title = 'Shelf'
+description = 'These are the pieces which I read/watched and enjoyed.'
+layout = 'shelf'
+date = 2025-01-02T00:00:00+05:30
++++
+
+## 2026
+
+### January
+
+<span data-type="article">📝 <a href="https://ngrok.com/blog/prompt-caching/" target="_blank" rel="noopener noreferrer">Prompt caching: 10x cheaper LLM tokens, but how?</a> by Sam Rose</span>
+

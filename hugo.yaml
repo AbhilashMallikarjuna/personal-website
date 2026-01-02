@@ -1,5 +1,13 @@
 baseURL: https://abhilashmallikarjuna.in/
 languageCode: en-us
+title: My Curiosity Corner
+theme: PaperMod
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 menu:
   main:
   - identifier: home
@@ -16,6 +24,10 @@ menu:
     name: TIL
     url: /today-i-learnt/
     weight: 3
+  - identifier: shelf
+    name: Shelf
+    url: /shelf/
+    weight: 4
 params:
   assets:
     favicon: /assets/favicon.png
@@ -37,5 +49,3 @@ params:
     url: https://gitlab.com/abhilashmallikarjuna2
   - name: github
     url: https://github.com/AbhilashMallikarjuna
-theme: PaperMod
-title: My Curiosity Corner
