@@ -9,5 +9,7 @@ date = 2025-01-02T00:00:00+05:30
 
 ### January
 
+<span data-type="article">📝 <a href="https://e-mail.wtf/" target="_blank" rel="noopener noreferrer">Email is Easy</a> by Sam Rose</span>
+
 <span data-type="article">📝 <a href="https://ngrok.com/blog/prompt-caching/" target="_blank" rel="noopener noreferrer">Prompt caching: 10x cheaper LLM tokens, but how?</a> by Sam Rose</span>
 
