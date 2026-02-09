@@ -9,6 +9,8 @@ date = 2025-01-02T00:00:00+05:30
 
 ### February
 
+<span data-type="video">🎥 <a href="https://youtube.com/playlist?list=PLSAVyiM48sqvzLBEbPqD8TZpfu5UyzO9t&si=zfuGoqoy9fRiioi3" target="_blank" rel="noopener noreferrer">Katas</a> by Varun Mayya</span>
+
 <span data-type="article">📝 <a href="https://loggingsucks.com/" target="_blank" rel="noopener noreferrer">Logging Sucks - Your Logs Are Lying To You</a> by Boris Tane</span>
 
 ### January
